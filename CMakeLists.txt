@@ -1,6 +1,12 @@
-cmake_minimum_required(VERSION 3.14)
-project(TP_RK2_new2)
+cmake_minimum_required(VERSION 3.10)
+project(TMP_RK2_new)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-add_executable(TP_RK2_new2 main.cpp)
+file(GLOB SOURCES "src/*.cpp")
+
+add_executable(${PROJECT_NAME} ${SOURCES})
+
+enable_testing()
+add_subdirectory(test)
