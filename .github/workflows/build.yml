@@ -1,0 +1,23 @@
+name: Build
+
+on: [push]
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install dependencies
+      run: sudo apt-get update && sudo apt-get install -y build-essential
+    - name: Configure
+      run: cmake .
+    - name: Build
+      run: cmake --build .
+    - name: Run tests
+      run: ctest -C Debug
+    - uses: actions/upload-artifact@v2
+      with:
+        name: TP_RK2_new2
+        path: TP_RK2_new2
